@@ -27,11 +27,14 @@ shinyServer(function(input, output) {
     formulaText()
   })
   
+  #box plot
   output$mpgBoxPlot <- renderPlot({
     boxplot(as.formula(formulaText()), 
             data = mpgData,
             outline = input$outliers)
   })
+  
+  #scatter plot
   output$scatterplot <- renderPlot({
     pairs(mpgData,panel = panel.smooth)
   })
