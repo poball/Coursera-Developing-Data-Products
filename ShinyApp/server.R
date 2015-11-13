@@ -1,13 +1,16 @@
-
+#loading Library
 library(shiny)
 library(datasets)
 attach(mtcars)
 
+#loading data
 mpgData <- mtcars
 mpgData$am <- factor(mpgData$am, labels = c("Automatic", "Manual"))
 
+#funtion for shiny app
 shinyServer(function(input, output) {
-  
+
+  #title text for model
   formulaText <- reactive({
     paste("mpg ~", input$variable)
   })
